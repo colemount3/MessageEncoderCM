@@ -1,0 +1,8 @@
+﻿Build started...
+1>------ Build started: Project: MessageEncoderCM, Configuration: Debug Any CPU ------
+1>Skipping analyzers to speed up the build. You can execute 'Build' or 'Rebuild' command to run analyzers.
+1>C:\Users\colem\source\repos\MessageEncoderCM\MessageEncoderCM\Program.cs(77,16,77,33): warning CS0219: The variable 'encodedUniMessage' is assigned but its value is never used
+1>MessageEncoderCM -> C:\Users\colem\source\repos\MessageEncoderCM\MessageEncoderCM\bin\Debug\net6.0\MessageEncoderCM.dll
+1>Done building project "MessageEncoderCM.csproj".
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+========== Elapsed 00:00.478 ==========
