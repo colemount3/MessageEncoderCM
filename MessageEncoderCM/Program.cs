@@ -7,8 +7,8 @@ class Program
    
     static void Main(string[] args)
     {
-        //int[] possibleValues = { 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126 };
-        int modUni = 0;
+        
+
         while (true)
 
         {
@@ -50,14 +50,16 @@ class Program
         string input = "";
         string encodedMessage = "";
         string encodedUniMessage = "";
-
+        int modUni = 0;
+        //prompt user for input
         Console.WriteLine("Please Enter the message you would like to encode");
         input = Console.ReadLine();
         Console.WriteLine("Please create your a key");
         string stringkey = Console.ReadLine();
         int key = int.Parse(stringkey);
-        //string encodedMessage = Encode(input, key);
         Console.WriteLine("Your encoded message is");
+
+        //message printed at end of Encode
         
 
 
@@ -83,17 +85,13 @@ class Program
             possibleValues[i] = temp;
 
         }
-       
 
 
-        
-
-
+        //setting encoded message to random possible values using each chars unicode value as an index
         char Encodedchar = '0';
-        int modUni = 0;
-        //setting encoded message to random possible values
         for (int i = 0; i < j; i++)
         {
+            //if input is unrecognized it will not be encoded
             try
             {
                 int unicode = (int)input[i];
@@ -102,12 +100,6 @@ class Program
             catch
             { Encodedchar = input[i];  }
            
-
-
-
-
-
-
 
            Encodedchar = (char)modUni;
 
@@ -131,14 +123,16 @@ class Program
         string stringkeyinput = "";
         string DecipherMessage = "";
 
+        //prompt user for input
+
         Console.WriteLine("Please enter the message you would like to deciepher");
         string message = Console.ReadLine();
         Console.WriteLine("Please enter the key");
         stringkeyinput = Console.ReadLine();
         int keyinput = int.Parse(stringkeyinput);
-       // string DecipherMessage = Decode(message, keyinput);
         Console.WriteLine(DecipherMessage);
 
+        //must randomize array seperately in case key is different from encoding or user does not encode
         int[] possibleValues = { 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126 };
 
         //randomizing the array
@@ -162,20 +156,16 @@ class Program
 
         }
 
-        ////////////////////
 
         string decodedMessage = "";
-       
 
-        
-
-
-        
 
         for (int i = 0; i < message.Length; i++)
         {
             int modUnidecode = 0;
             int unicode = (int)message[i];
+
+            //nested for loop checks if each value in the random array is the value of encoded char, counts how many it takes to get to value, to find what index was
             for (int x = 0; x < possibleValues.Length; x++)
             {
                 modUnidecode++;
@@ -187,7 +177,7 @@ class Program
 
             }
          
-
+            //converts index unicode number back to letter
             char Decodedchar = (char)(modUnidecode + 30);
            
 
